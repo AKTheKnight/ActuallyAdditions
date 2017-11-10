@@ -1,0 +1,14 @@
+Features:
+Configurable Item Drop key
+
+TODO:
+Shift to run
+Drag to split items
+Plants?
+Ladders
+Vines?
+
+
+API versions:
+https://maven.chaosfield.at/de/ellpeck/rockbottom/RockBottomAPI/
+https://maven.chaosfield.at/de/ellpeck/rockbottom/RockBottomAPI/maven-metadata.xml

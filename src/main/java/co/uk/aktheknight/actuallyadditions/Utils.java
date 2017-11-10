@@ -22,10 +22,13 @@ public final class Utils{
     }
 
     public static void removeAndThrow(ItemContainer container, AbstractEntityPlayer player, int slot, int count) {
-        //Check if player has enough items
-        //TODO Only throw min (number of items, count)
+        //Get the slot
         ContainerSlot containerSlot = container.getSlot(slot);
-        EntityItem.spawn(player.world, containerSlot.get().copy().setAmount(1), player.x, player.y + 0.75, player.facing.x * 0.25, 0);
-        containerSlot.inventory.remove(containerSlot.slot, count);
+        //Throw count or number of items player has
+        int numToThrow = Math.min(containerSlot.get().getAmount(), count);
+
+        //Spawn the amount
+        EntityItem.spawn(player.world, containerSlot.get().copy().setAmount(numToThrow), player.x, player.y + 0.75, player.facing.x * 0.25, 0);
+        containerSlot.inventory.remove(containerSlot.slot, numToThrow);
     }
 }
