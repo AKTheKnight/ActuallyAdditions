@@ -1,5 +1,6 @@
 Features:
 Configurable Item Drop key
+Sprinting
 
 TODO:
 Drag to split items
