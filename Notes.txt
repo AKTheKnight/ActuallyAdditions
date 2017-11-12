@@ -2,7 +2,6 @@ Features:
 Configurable Item Drop key
 
 TODO:
-Shift to run
 Drag to split items
 Plants?
 Ladders

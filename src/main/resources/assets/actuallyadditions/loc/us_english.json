@@ -1,6 +1,7 @@
 {
     "actuallyadditions": {
         "test": "This is a test!",
-        "key.dropItemKeybind": "Drop Item"
+        "key.dropItemKeybind": "Drop Item",
+        "key.springKeybind": "Sprint"
     }
 }

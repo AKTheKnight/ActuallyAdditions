@@ -1,6 +1,8 @@
 package co.uk.aktheknight.actuallyadditions;
 
 import co.uk.aktheknight.actuallyadditions.features.DropItem;
+import co.uk.aktheknight.actuallyadditions.features.Sprinting;
+import co.uk.aktheknight.actuallyadditions.packets.SprintPacket;
 import co.uk.aktheknight.actuallyadditions.packets.ThrowPacket;
 import de.ellpeck.rockbottom.api.IApiHandler;
 import de.ellpeck.rockbottom.api.IGameInstance;
@@ -8,6 +10,7 @@ import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.data.settings.Keybind;
 import de.ellpeck.rockbottom.api.event.IEventHandler;
+import de.ellpeck.rockbottom.api.event.impl.ResetMovedPlayerEvent;
 import de.ellpeck.rockbottom.api.event.impl.WorldTickEvent;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.util.reg.IResourceName;
@@ -35,6 +38,7 @@ public class ActuallyAdditions implements IMod{
 
     //Vars
     public Keybind dropItemKeybind;
+    public Keybind sprintKeybind;
 
     @Override
     public String getDisplayName(){
@@ -69,6 +73,10 @@ public class ActuallyAdditions implements IMod{
     @Override
     public void prePreInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler){
         this.modLogger = apiHandler.createLogger(this.getDisplayName());
+
+        //Keybinds
+        this.sprintKeybind = new Keybind(createRes("sprintKeybind"), Keyboard.KEY_LCONTROL, false).register();
+        this.dropItemKeybind = new Keybind(createRes("dropItemKeybind"), Keyboard.KEY_Q, false).register();
     }
 
     @Override
@@ -80,12 +88,12 @@ public class ActuallyAdditions implements IMod{
     public void init(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler){
         //Packets
         Utils.registerPacket(ThrowPacket.class);
-
-        //Keybinds
-        this.dropItemKeybind = new Keybind(createRes("dropItemKeybind"), Keyboard.KEY_Q, false).register();
+        Utils.registerPacket(SprintPacket.class);
 
         //Register events
         RockBottomAPI.getEventHandler().registerListener(WorldTickEvent.class, DropItem:: worldTickEvent);
+        RockBottomAPI.getEventHandler().registerListener(WorldTickEvent.class, Sprinting:: worldTickEvent);
+        RockBottomAPI.getEventHandler().registerListener(ResetMovedPlayerEvent.class, Sprinting:: resetMovedPlayerEvent);
     }
 
     @Override
