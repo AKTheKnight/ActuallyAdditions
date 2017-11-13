@@ -31,4 +31,12 @@ public final class Utils{
         EntityItem.spawn(player.world, containerSlot.get().copy().setAmount(numToThrow), player.x, player.y + 0.75, player.facing.x * 0.25, 0);
         containerSlot.inventory.remove(containerSlot.slot, numToThrow);
     }
+
+    public static String localize(String resourceName) {
+        return RockBottomAPI.getGame().getAssetManager().localize(ActuallyAdditions.createRes(resourceName));
+    }
+
+    public static String localizeGui(String resourceName) {
+       return localize("gui." + resourceName);
+    }
 }

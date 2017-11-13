@@ -2,6 +2,7 @@ package co.uk.aktheknight.actuallyadditions;
 
 import co.uk.aktheknight.actuallyadditions.features.DropItem;
 import co.uk.aktheknight.actuallyadditions.features.Sprinting;
+import co.uk.aktheknight.actuallyadditions.guis.GuiConfig;
 import co.uk.aktheknight.actuallyadditions.packets.SprintPacket;
 import co.uk.aktheknight.actuallyadditions.packets.ThrowPacket;
 import de.ellpeck.rockbottom.api.IApiHandler;
@@ -12,6 +13,7 @@ import de.ellpeck.rockbottom.api.data.settings.Keybind;
 import de.ellpeck.rockbottom.api.event.IEventHandler;
 import de.ellpeck.rockbottom.api.event.impl.ResetMovedPlayerEvent;
 import de.ellpeck.rockbottom.api.event.impl.WorldTickEvent;
+import de.ellpeck.rockbottom.api.gui.Gui;
 import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.util.reg.IResourceName;
 import org.lwjgl.input.Keyboard;
@@ -68,6 +70,11 @@ public class ActuallyAdditions implements IMod{
     @Override
     public String[] getAuthors(){
         return new String[]{"AKTheKnight", "Ellpeck"};
+    }
+
+    @Override
+    public Class<? extends Gui> getModGuiClass(){
+        return GuiConfig.class;
     }
 
     @Override

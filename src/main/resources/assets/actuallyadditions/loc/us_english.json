@@ -1,7 +1,22 @@
 {
     "actuallyadditions": {
         "test": "This is a test!",
-        "key.dropItemKeybind": "Drop Item",
-        "key.sprintKeybind": "Sprint"
+
+        "key": {
+            "dropItemKeybind": "Drop Item",
+            "sprintKeybind": "Sprint"
+        },
+
+        "gui": {
+            "settingsTitle": "Actually Additions Settings",
+
+
+            "sprintSpeedText": "Sprint Speed",
+            "sprintSpeedTooltip": "Sprint speed as a percentage of default speed (Default: 115%)",
+            "sprintEnable": "Enable Sprinting",
+            "sprintDisable": "Disable Sprinting",
+            "sprintEnableText": "Whether to enable/disable the sprint feature",
+            "sprintServerNotice": "This setting will be overridden by server settings while connected."
+        }
     }
 }
