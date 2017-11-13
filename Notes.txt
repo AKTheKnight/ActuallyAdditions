@@ -3,6 +3,7 @@ Configurable Item Drop key
 Sprinting
 
 TODO:
+GUI for config screen
 Drag to split items
 Plants?
 Ladders

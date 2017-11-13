@@ -34,7 +34,7 @@ public final class Sprinting{
         }
 
         if (isSprinting)
-            player.motionX = player.motionX * 1.2;
+            player.motionX = player.motionX * 1.15;
 
         return result;
     }
