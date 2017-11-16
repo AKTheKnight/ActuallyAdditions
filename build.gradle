@@ -1,5 +1,5 @@
 group 'co.uk.aktheknight.actuallyadditions'
-version '0.0.3'
+version '0.0.4'
 
 apply from: "https://github.com/RockBottomGame/Gradle/raw/master/buildscript.gradle"
 

@@ -17,6 +17,19 @@
             "sprintDisable": "Disable Sprinting",
             "sprintEnableText": "Whether to enable/disable the sprint feature",
             "sprintServerNotice": "This setting will be overridden by server settings while connected."
+        },
+
+        "item": {
+            "leafladder": "Leaf Ladder",
+            "vine": "Vine",
+            "machete": "Machete"
+        },
+
+        "tooltip": {
+            "dyk": {
+                "tooltip": "Did you know, %s",
+                "leafLadder": "The leaf ladder was originally going to be a rope ladder"
+            }
         }
     }
 }

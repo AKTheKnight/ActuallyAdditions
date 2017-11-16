@@ -17,6 +17,7 @@ public final class Sprinting{
         if(RockBottomAPI.getGame().isDedicatedServer()){
             return result;
         }
+
         AbstractEntityPlayer player = RockBottomAPI.getGame().getPlayer();
 
         if (ActuallyAdditions.instance.sprintKeybind.isDown()) {

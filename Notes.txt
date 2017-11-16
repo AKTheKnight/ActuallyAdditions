@@ -7,8 +7,6 @@ GUI for config screen
 Drag to split items
 Plants?
 Ladders
-Rope ladder
-Vines?
 Double jump
 Wall jump
 Bed (Jumping)

@@ -6,6 +6,7 @@ import de.ellpeck.rockbottom.api.entity.EntityItem;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.gui.container.ContainerSlot;
 import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
+import de.ellpeck.rockbottom.api.util.reg.IResourceName;
 
 public final class Utils{
 
@@ -32,8 +33,12 @@ public final class Utils{
         containerSlot.inventory.remove(containerSlot.slot, numToThrow);
     }
 
+    public static IResourceName createRes(String name){
+        return RockBottomAPI.createRes(ActuallyAdditions.instance, name);
+    }
+
     public static String localize(String resourceName) {
-        return RockBottomAPI.getGame().getAssetManager().localize(ActuallyAdditions.createRes(resourceName));
+        return RockBottomAPI.getGame().getAssetManager().localize(Utils.createRes(resourceName));
     }
 
     public static String localizeGui(String resourceName) {
