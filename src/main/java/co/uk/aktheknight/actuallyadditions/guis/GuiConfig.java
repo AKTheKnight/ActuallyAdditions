@@ -48,7 +48,7 @@ public class GuiConfig extends Gui{
         GuiComponent spacer = new GuiComponent(this, 0, 0, 150, 3){
             @Override
             public IResourceName getName(){
-                return ActuallyAdditions.createRes("spacergui");
+                return Utils.createRes("spacergui");
             }
         };
 
@@ -72,6 +72,6 @@ public class GuiConfig extends Gui{
 
     @Override
     public IResourceName getName(){
-        return ActuallyAdditions.createRes("settingsgui");
+        return Utils.createRes("settingsgui");
     }
 }

@@ -1,5 +1,18 @@
 {
     "loc": {
         "us_english": "/loc/us_english.json"
+    },
+    "tex": {
+        "tiles": {
+            "leafladder": "/tex/tiles/leafladder.png",
+            "vine": {
+                "*": "/tex/tiles/vine_0.png",
+                "1": "/tex/tiles/vine_1.png",
+                "2": "/tex/tiles/vine_2.png"
+            }
+        },
+        "items": {
+            "machete": "/tex/items/machete.png"
+        }
     }
 }

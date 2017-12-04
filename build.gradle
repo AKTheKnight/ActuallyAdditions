@@ -1,5 +1,5 @@
 group 'co.uk.aktheknight.actuallyadditions'
-version '0.0.3'
+version '0.0.4'
 
 apply from: "https://github.com/RockBottomGame/Gradle/raw/master/buildscript.gradle"
 
@@ -12,5 +12,5 @@ processSources {
 }
 
 dependencies {
-    compile group: 'de.ellpeck.rockbottom', name: 'RockBottomAPI', version: '0.1.20-331'
+    compile group: 'de.ellpeck.rockbottom', name: 'RockBottomAPI', version: '0.1.22-348'
 }
