@@ -32,6 +32,9 @@ public class TileVine extends TileBasic{
 
         AbstractEntityPlayer player = (AbstractEntityPlayer)destroyer;
 
+        if (player == null)
+            return Collections.EMPTY_LIST;
+
         if (player.getInv().get(player.getSelectedSlot()).getItem() == ActuallyAdditions.instance.itemMachete) {
             return Collections.singletonList(new ItemInstance(this));
         }

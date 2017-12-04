@@ -14,6 +14,7 @@ import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.BoundBox;
 import de.ellpeck.rockbottom.api.util.Util;
 import de.ellpeck.rockbottom.api.world.IWorld;
+import de.ellpeck.rockbottom.api.world.gen.IWorldGenerator;
 import de.ellpeck.rockbottom.api.world.layer.TileLayer;
 import org.newdawn.slick.Input;
 
@@ -85,23 +86,13 @@ public class TileLeafLadder extends TileBasic{
         TileState above = world.getState(layer, x, y + 1);
 
         if (state.get(this.isTop)) {
-            //Is top so create one below if it is air.
-            if (!world.getState(layer, x, y -1).getTile().isFullTile()) {
-                //TODO Uncomment when PR into API is merged
-                //world.destroyTile(x, y - 1, layer, null, true);
-                world.setState(layer, x, y-1, this.getDefState().prop(this.isTop, false));
-                world.scheduleUpdate(x, y-1, layer, placeDelay);
-            }
+            //Try placing below as this is the top
+            this.placeBelow(world, layer, x, y);
         }
         else {
-            //If tile above is rope ladder and we can place below we should place
+            //If tile above is rope ladder try placing below
             if (above.getTile() == this) {
-                if (!world.getState(layer, x, y -1).getTile().isFullTile()){
-                    //TODO Uncomment when PR into API is merged
-                    //world.destroyTile(x, y - 1, layer, null, true);
-                    world.setState(layer, x, y-1, this.getDefState().prop(this.isTop, false));
-                    world.scheduleUpdate(x, y - 1, layer, placeDelay);
-                }
+                this.placeBelow(world, layer, x, y);
             }
             //Else break it and schedule updates
             else {
@@ -112,10 +103,24 @@ public class TileLeafLadder extends TileBasic{
         }
     }
 
+    private void placeBelow(IWorld world, TileLayer layer, int x, int y) {
+        //If the world below is not a full tile
+        if (!world.getState(layer, x, y - 1).getTile().isFullTile()){
+            //TODO Uncomment when PR into API is merged
+            //If it's not air destroy it
+            if (!world.getState(layer, x, y - 1).getTile().isAir())
+                world.destroyTile(x, y - 1, layer, null, true);
+            //Set the state and schedule the update
+            world.setState(layer, x, y-1, this.getDefState().prop(this.isTop, false));
+            world.scheduleUpdate(x, y - 1, layer, placeDelay);
+        }
+    }
+
     @Override
     public void onRemoved(IWorld world, int x, int y, TileLayer layer){
-        super.onRemoved(world, x, y, layer);
+        //Check the tile is this
         if (world.getState(layer, x, y - 1).getTile() == this) {
+            //Schedule update on tile below
             world.scheduleUpdate(x, y - 1, layer, destroyDelay);
         }
     }
