@@ -1,4 +1,4 @@
-package co.uk.aktheknight.actuallyadditions.features;
+package co.uk.aktheknight.actuallyadditions.renderers;
 
 import co.uk.aktheknight.actuallyadditions.tiles.TileVine;
 import de.ellpeck.rockbottom.api.IGameInstance;

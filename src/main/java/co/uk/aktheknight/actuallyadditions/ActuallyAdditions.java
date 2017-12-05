@@ -1,8 +1,9 @@
 package co.uk.aktheknight.actuallyadditions;
 
-import co.uk.aktheknight.actuallyadditions.features.CustomWorldGen;
+import co.uk.aktheknight.actuallyadditions.config.ModConfig;
+import co.uk.aktheknight.actuallyadditions.worldgen.CustomWorldGen;
 import co.uk.aktheknight.actuallyadditions.features.DropItem;
-import co.uk.aktheknight.actuallyadditions.features.RecipeTileBreak;
+import co.uk.aktheknight.actuallyadditions.recipes.RecipeTileBreak;
 import co.uk.aktheknight.actuallyadditions.features.Sprinting;
 import co.uk.aktheknight.actuallyadditions.guis.GuiConfig;
 import co.uk.aktheknight.actuallyadditions.items.ItemMachete;
@@ -50,6 +51,12 @@ public class ActuallyAdditions implements IMod{
     @Deprecated
     public static IResourceName createRes(String name){
         return RockBottomAPI.createRes(instance, name);
+    }
+
+    private ModConfig config;
+
+    public ModConfig getConfig(){
+        return this.config;
     }
 
     //Vars
@@ -134,6 +141,9 @@ public class ActuallyAdditions implements IMod{
 
         //Register world gen
         RockBottomAPI.WORLD_GENERATORS.register(Utils.createRes("worldgen"), CustomWorldGen.class);
+
+        this.config = new ModConfig();
+        game.getDataManager().loadPropSettings(this.config);
 
         //Register recipe
         this.recipeMachete = new KnowledgeBasedRecipe(Utils.createRes("machete"), new ItemInstance(this.itemMachete), new ItemUseInfo(GameContent.TILE_PEBBLES, 2), new ItemUseInfo(GameContent.TILE_LOG)).registerManual();

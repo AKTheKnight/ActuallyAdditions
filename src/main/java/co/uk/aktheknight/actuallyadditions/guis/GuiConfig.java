@@ -2,6 +2,7 @@ package co.uk.aktheknight.actuallyadditions.guis;
 
 import co.uk.aktheknight.actuallyadditions.ActuallyAdditions;
 import co.uk.aktheknight.actuallyadditions.Utils;
+import co.uk.aktheknight.actuallyadditions.config.ModConfig;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.IGraphics;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
@@ -18,10 +19,11 @@ public class GuiConfig extends Gui{
 
     public GuiConfig(Gui parent){
         super(parent);
+
+        this.config = ActuallyAdditions.instance.getConfig();
     }
 
-    static boolean sprintEnable = true;
-    static int sprintValue = 115;
+    ModConfig config;
 
     @Override
     public void render(IGameInstance game, IAssetManager manager, IGraphics g){
@@ -42,6 +44,13 @@ public class GuiConfig extends Gui{
         this.components.add(scrollMenu);
     }
 
+    @Override
+    public void onClosed(IGameInstance game){
+        super.onClosed(game);
+
+        game.getDataManager().savePropSettings(ActuallyAdditions.instance.getConfig());
+    }
+
     private void setupComponents(IGameInstance game, ComponentScrollMenu scrollMenu) {
         scrollMenu.clear();
 
@@ -52,16 +61,16 @@ public class GuiConfig extends Gui{
             }
         };
 
-        ComponentSlider sprintSlider = new ComponentSlider(this, 0, 0, 150, 20, sprintValue, 100, 120, (integer, aBoolean) -> sprintValue = integer, Utils.localizeGui("sprintSpeedText"), Utils.localizeGui("sprintSpeedTooltip"));
+        ComponentSlider sprintSlider = new ComponentSlider(this, 0, 0, 150, 20, this.config.sprintingSpeed, 100, 120, (integer, aBoolean) -> this.config.sprintingSpeed = integer, Utils.localizeGui("sprintSpeedText"), Utils.localizeGui("sprintSpeedTooltip"));
 
         ComponentButton sprintToggle = new ComponentButton(this, 0, 0, 150, 20, () -> {
-            sprintEnable = !sprintEnable;
+            this.config.sprintingEnabled = !this.config.sprintingEnabled;
             this.setupComponents(game, scrollMenu);
             return true;
-        }, sprintEnable ? Utils.localizeGui("sprintDisable") : Utils.localizeGui("sprintEnable"), Utils.localizeGui("sprintEnableText"), Utils.localizeGui("sprintServerNotice"));
+        }, this.config.sprintingEnabled ? Utils.localizeGui("sprintDisable") : Utils.localizeGui("sprintEnable"), Utils.localizeGui("sprintEnableText"), Utils.localizeGui("sprintServerNotice"));
 
         scrollMenu.add(sprintToggle);
-        if (sprintEnable)
+        if (this.config.sprintingEnabled)
             scrollMenu.add(sprintSlider);
 
         scrollMenu.add(spacer);

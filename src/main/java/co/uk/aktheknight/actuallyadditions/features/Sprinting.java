@@ -14,6 +14,10 @@ public final class Sprinting{
     static boolean isSprinting;
 
     public static EventResult worldTickEvent(EventResult result, WorldTickEvent event){
+        //If it isn't enabled then skip
+        if (!ActuallyAdditions.instance.getConfig().sprintingEnabled)
+            return result;
+
         if(RockBottomAPI.getGame().isDedicatedServer()){
             return result;
         }
@@ -35,7 +39,7 @@ public final class Sprinting{
         }
 
         if (isSprinting)
-            player.motionX = player.motionX * 1.15;
+            player.motionX = player.motionX * ActuallyAdditions.instance.getConfig().sprintingSpeed;
 
         return result;
     }

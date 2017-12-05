@@ -1,4 +1,4 @@
-package co.uk.aktheknight.actuallyadditions.features;
+package co.uk.aktheknight.actuallyadditions.worldgen;
 
 import co.uk.aktheknight.actuallyadditions.ActuallyAdditions;
 import de.ellpeck.rockbottom.api.Constants;
