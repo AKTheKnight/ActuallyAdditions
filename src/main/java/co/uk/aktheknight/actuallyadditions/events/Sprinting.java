@@ -1,4 +1,4 @@
-package co.uk.aktheknight.actuallyadditions.features;
+package co.uk.aktheknight.actuallyadditions.events;
 
 import co.uk.aktheknight.actuallyadditions.ActuallyAdditions;
 import co.uk.aktheknight.actuallyadditions.packets.SprintPacket;
@@ -39,7 +39,7 @@ public final class Sprinting{
         }
 
         if (isSprinting)
-            player.motionX = player.motionX * ActuallyAdditions.instance.getConfig().sprintingSpeed;
+            player.motionX = player.motionX * (ActuallyAdditions.instance.getConfig().sprintingSpeed / 100);
 
         return result;
     }
