@@ -1,5 +1,6 @@
-package co.uk.aktheknight.actuallyadditions;
+package co.uk.aktheknight.actuallyadditions.util;
 
+import co.uk.aktheknight.actuallyadditions.ActuallyAdditions;
 import co.uk.aktheknight.actuallyadditions.packets.ThrowPacket;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.entity.EntityItem;

@@ -1,6 +1,6 @@
 package co.uk.aktheknight.actuallyadditions.tiles;
 
-import co.uk.aktheknight.actuallyadditions.Utils;
+import co.uk.aktheknight.actuallyadditions.util.Utils;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.assets.font.FormattingCode;
@@ -14,7 +14,6 @@ import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.BoundBox;
 import de.ellpeck.rockbottom.api.util.Util;
 import de.ellpeck.rockbottom.api.world.IWorld;
-import de.ellpeck.rockbottom.api.world.gen.IWorldGenerator;
 import de.ellpeck.rockbottom.api.world.layer.TileLayer;
 import org.newdawn.slick.Input;
 

@@ -1,16 +1,17 @@
 package co.uk.aktheknight.actuallyadditions;
 
 import co.uk.aktheknight.actuallyadditions.config.ModConfig;
-import co.uk.aktheknight.actuallyadditions.worldgen.CustomWorldGen;
-import co.uk.aktheknight.actuallyadditions.features.DropItem;
-import co.uk.aktheknight.actuallyadditions.recipes.RecipeTileBreak;
-import co.uk.aktheknight.actuallyadditions.features.Sprinting;
+import co.uk.aktheknight.actuallyadditions.events.DropItem;
+import co.uk.aktheknight.actuallyadditions.events.Sprinting;
 import co.uk.aktheknight.actuallyadditions.guis.GuiConfig;
 import co.uk.aktheknight.actuallyadditions.items.ItemMachete;
 import co.uk.aktheknight.actuallyadditions.packets.SprintPacket;
 import co.uk.aktheknight.actuallyadditions.packets.ThrowPacket;
+import co.uk.aktheknight.actuallyadditions.recipes.RecipeTileBreak;
 import co.uk.aktheknight.actuallyadditions.tiles.TileLeafLadder;
 import co.uk.aktheknight.actuallyadditions.tiles.TileVine;
+import co.uk.aktheknight.actuallyadditions.util.Utils;
+import co.uk.aktheknight.actuallyadditions.worldgen.CustomWorldGen;
 import de.ellpeck.rockbottom.api.GameContent;
 import de.ellpeck.rockbottom.api.IApiHandler;
 import de.ellpeck.rockbottom.api.IGameInstance;
@@ -142,6 +143,7 @@ public class ActuallyAdditions implements IMod{
         //Register world gen
         RockBottomAPI.WORLD_GENERATORS.register(Utils.createRes("worldgen"), CustomWorldGen.class);
 
+        //Config
         this.config = new ModConfig();
         game.getDataManager().loadPropSettings(this.config);
 

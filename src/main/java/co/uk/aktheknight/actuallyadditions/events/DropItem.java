@@ -1,4 +1,4 @@
-package co.uk.aktheknight.actuallyadditions.features;
+package co.uk.aktheknight.actuallyadditions.events;
 
 import co.uk.aktheknight.actuallyadditions.ActuallyAdditions;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
@@ -13,7 +13,7 @@ import de.ellpeck.rockbottom.api.gui.container.ContainerSlot;
 import de.ellpeck.rockbottom.api.inventory.Inventory;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 
-import static co.uk.aktheknight.actuallyadditions.Utils.removeAndThrowOrPacket;
+import static co.uk.aktheknight.actuallyadditions.util.Utils.removeAndThrowOrPacket;
 
 public final class DropItem {
 

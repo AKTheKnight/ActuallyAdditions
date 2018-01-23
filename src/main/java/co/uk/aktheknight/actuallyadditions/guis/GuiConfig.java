@@ -1,7 +1,7 @@
 package co.uk.aktheknight.actuallyadditions.guis;
 
 import co.uk.aktheknight.actuallyadditions.ActuallyAdditions;
-import co.uk.aktheknight.actuallyadditions.Utils;
+import co.uk.aktheknight.actuallyadditions.util.Utils;
 import co.uk.aktheknight.actuallyadditions.config.ModConfig;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.IGraphics;

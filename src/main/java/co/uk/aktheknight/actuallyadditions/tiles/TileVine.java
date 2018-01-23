@@ -1,7 +1,7 @@
 package co.uk.aktheknight.actuallyadditions.tiles;
 
 import co.uk.aktheknight.actuallyadditions.ActuallyAdditions;
-import co.uk.aktheknight.actuallyadditions.Utils;
+import co.uk.aktheknight.actuallyadditions.util.Utils;
 import co.uk.aktheknight.actuallyadditions.renderers.VineRenderer;
 import de.ellpeck.rockbottom.api.entity.Entity;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
