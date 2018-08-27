@@ -1,3 +1,5 @@
+# This is an old repo for a prior version of the code. Go [here](https://github.com/AKTheKnight/ActuallyAdditions) for the current version of the code
+
 # Actually Additions
 A simple Rock Bottom mod tweaking the game and adding useful little things.
 
